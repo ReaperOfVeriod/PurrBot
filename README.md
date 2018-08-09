@@ -1,0 +1,2 @@
+# PurrBot
+Funny discord bot
