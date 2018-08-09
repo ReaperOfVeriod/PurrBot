@@ -1,0 +1,5 @@
+{
+    "help" : "Displays all commands.",
+    "reload" : "Reloads commands(admin only) usage:`reload <command>` (ADMIN ONLY)",
+    "prefix" : "Used to change the prefix usage: `prefix <new prefix>` (ADMIN ONLY)"
+}
