@@ -1,5 +1,5 @@
 exports.run = (client, message, args) => {
-    const path = "./images/";
+    const path = "./images/cat/";
     const fs = require("fs");
     
     const nekoImage = fs.readdirSync(path)

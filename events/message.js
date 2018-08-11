@@ -1,11 +1,11 @@
 module.exports = (client, message) => {
     // Ignore all bots
     if (message.author.bot) return;
-
+    
     // Ignore messages not starting with the prefix (in config.json)
     if (message.content.indexOf(client.config.prefix) !== 0) return;
 
-    // Our standard argument/command name definition.
+      // Our standard argument/command name definition.
     const args = message.content.slice(client.config.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
@@ -17,4 +17,18 @@ module.exports = (client, message) => {
     
     // Run the command
     cmd.run(client, message, args);
+  
+};
+
+module.exports = (client, message) => {
+  if (message.author.bot) return;
+
+  if (message.isMemberMentioned(message.member)) {
+    message.channel.send({
+      files: [{
+        attachment: "./images/everyone/1.jpg",
+        name: "everyone.jpg"
+      }]
+    })
   };
+};
