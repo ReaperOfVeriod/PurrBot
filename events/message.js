@@ -18,17 +18,14 @@ module.exports = (client, message) => {
     // Run the command
     cmd.run(client, message, args);
   
-};
+    // if (message.content.isMemberMentioned(client.users.get("477528633376768001"))) {
+    //   console.log("everyone")
+    //   message.channel.send({
+    //     files: [{
+    //       attachment: "./images/everyone/1.jpg",
+    //       name: "everyone.jpg"
+    //     }]
+    //   })
+    // } return;
 
-module.exports = (client, message) => {
-  if (message.author.bot) return;
-
-  if (message.isMemberMentioned(message.member)) {
-    message.channel.send({
-      files: [{
-        attachment: "./images/everyone/1.jpg",
-        name: "everyone.jpg"
-      }]
-    })
-  };
 };

@@ -3,7 +3,7 @@ exports.run = (client, message, args) => {
     const fs = require("fs");
     
     const nekoImage = fs.readdirSync(path)
-  
+
     var neko = nekoImage[Math.floor(Math.random() * nekoImage.length)];
     var randomNeko = path + neko;
     message.channel.send({
