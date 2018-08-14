@@ -3,29 +3,27 @@ module.exports = (client, message) => {
     if (message.author.bot) return;
     
     // Ignore messages not starting with the prefix (in config.json)
-    if (message.content.indexOf(client.config.prefix) !== 0) return;
+    if (message.content.indexOf(client.config.prefix) >= 0) {
+        // Our standard argument/command name definition.
+      const args = message.content.slice(client.config.prefix.length).trim().split(/ +/g);
+      const command = args.shift().toLowerCase();
 
-      // Our standard argument/command name definition.
-    const args = message.content.slice(client.config.prefix.length).trim().split(/ +/g);
-    const command = args.shift().toLowerCase();
+      // Grab the command data from the client.commands Enmap
+      const cmd = client.commands.get(command);
 
-    // Grab the command data from the client.commands Enmap
-    const cmd = client.commands.get(command);
+      // If that command doesn't exist, silently exit and do nothing
+      if (cmd) {
+        // Run the command
+        cmd.run(client, message, args);
+      }
+    }
 
-    // If that command doesn't exist, silently exit and do nothing
-    if (!cmd) return;
-    
-    // Run the command
-    cmd.run(client, message, args);
-  
-    // if (message.content.isMemberMentioned(client.users.get("477528633376768001"))) {
-    //   console.log("everyone")
-    //   message.channel.send({
-    //     files: [{
-    //       attachment: "./images/everyone/1.jpg",
-    //       name: "everyone.jpg"
-    //     }]
-    //   })
-    // } return;
-
+    if(message.mentions.everyone && message.content.indexOf("@everyone") >= 0) {
+      message.channel.send({
+        files: [{
+          attachment: "./images/everyone/1.jpg",
+          name: "everyone.jpg"
+        }]
+      })
+    }
 };
