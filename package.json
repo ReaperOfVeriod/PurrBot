@@ -4,12 +4,13 @@
   "description": "Funny discord bot",
   "main": "main.js",
   "scripts": {
-    "test": "node ./main.js"
+    "start": "node ./main.js"
   },
   "author": "ReaperOfVeriod",
   "license": "MIT",
   "dependencies": {
     "discord.js": "^11.3.2",
-    "enmap": "^3.0.2"
+    "enmap": "^3.0.2",
+    "ytdl-core": "^0.24.0"
   }
 }
