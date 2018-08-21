@@ -1,9 +1,4 @@
 # PurrBot
 
-Create a `private.json` file in the root directory containing the following format:
-
-```json
-{
-    "token": "<discord-token>"
-}
-```
+for simple usage
+clone the code and run `./start.sh` in the terminal follow the steps asked for :)
